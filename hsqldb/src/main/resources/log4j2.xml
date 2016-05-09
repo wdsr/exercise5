@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" shutdownHook="disable">
+	<Properties>
+		<Property name="log-path">logs</Property>
+	</Properties>
+
+	<Appenders>
+		<RollingFile name="file-log" fileName="${log-path}/main.log"
+			filePattern="${log-path}/main-%d{yyyy-MM-dd}.log">
+			<PatternLayout>
+				<pattern>%-4r [%t] %-5p %c %x - %m%n
+				</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%-4r [%t] %-5p %c %x - %m%n" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Root level="info" additivity="false">
+			<appender-ref ref="console" level="debug"/>
+            <appender-ref ref="file-log" level="debug" />
+		</Root>
+	</Loggers>
+</Configuration>

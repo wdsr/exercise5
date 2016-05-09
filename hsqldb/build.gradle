@@ -1,0 +1,34 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    hsqldbVersion = "2.3.3"
+	log4jVersion = '2.5'
+    junitVersion = '4.12'
+	
+	libraries = [       
+        hsqldb: [
+                "org.hsqldb:hsqldb:${hsqldbVersion}"
+        ],
+		
+        log4j: [
+                "org.apache.logging.log4j:log4j-api:${log4jVersion}",
+                "org.apache.logging.log4j:log4j-core:${log4jVersion}",
+                "org.apache.logging.log4j:log4j-slf4j-impl:${log4jVersion}"
+        ]
+	]
+}
+
+dependencies {
+    compile libraries.log4j
+    compile libraries.hsqldb
+}
+
+apply plugin: 'application'
+mainClassName = "wdsr.exercise5.Main"
