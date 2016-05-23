@@ -8,7 +8,7 @@ repositories {
 }
 
 ext {
-    hsqldbVersion = "2.3.3"
+    hsqldbVersion = "2.3.4"
 	log4jVersion = '2.5'
     junitVersion = '4.12'
 	

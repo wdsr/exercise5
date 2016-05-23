@@ -9,10 +9,11 @@ import org.hsqldb.server.ServerConstants;
  * Created by maro on 2014-06-03.
  */
 public final class MyHsqlServer extends Server {
-    public MyHsqlServer(final String databaseName, final String databasePath) {
+    public MyHsqlServer(final int port, final String databaseName, final String databasePath) {
         setLogWriter(new Log4jPrintWriter());
         setDatabaseName(0, databaseName);
         setDatabasePath(0, databasePath);
+        setPort(port);
     }
 
     @Override

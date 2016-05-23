@@ -9,7 +9,7 @@ public class Main {
     private static final Logger log = LoggerFactory.getLogger(Main.class);
 
 	public static void main(String[] args) throws InterruptedException {
-		MyHsqlServer dbServer = new MyHsqlServer("test-db", "mem:test-db");
+		MyHsqlServer dbServer = new MyHsqlServer(9001, "test-db", "mem:test-db");
 		dbServer.start();
 		log.info("Database started");
 	}
